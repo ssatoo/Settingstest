@@ -85,8 +85,7 @@ class ViewController: UIViewController,ApiServiceDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("Controllers")
-        print(self.navigationController?.viewControllers)
+       
     }
     
     override func viewDidLoad() {
