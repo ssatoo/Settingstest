@@ -14,7 +14,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    
+    func pushMenu()
+    {
+        print("pushing")
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let main = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftMenuViewSID") as! LeftMenuViewController
+        //let rightViewController:UIViewController! = storyboard.instantiateViewControllerWithIdentifier("RightMenuViewSID") as! RightMenuVC
+        
+        
+        let nvc: UINavigationController = UINavigationController (rootViewController: main)
+        
+        
+        leftViewController.menu1 = nvc
+        
+        
+        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+        
+        
+        
+        self.window?.rootViewController = slideMenuController
+        
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        self.pushMenu()
         // Override point for customization after application launch.
         return true
     }
