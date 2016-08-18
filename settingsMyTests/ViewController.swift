@@ -17,7 +17,6 @@ class ViewController: UIViewController,ApiServiceDelegate {
     var totalSec =  0
     
     
-    
     var progressCounter:Int = 0 {
         didSet {
             let fractionalProgress = Float(progressCounter) / 100.0
@@ -92,7 +91,7 @@ class ViewController: UIViewController,ApiServiceDelegate {
         super.viewDidLoad()
 
         
-        
+        self.title = "Home"
         
          self.setNavigationBarItem()
         
@@ -121,10 +120,10 @@ class ViewController: UIViewController,ApiServiceDelegate {
         
         print("api calls : \(Utility.apiMethod.Url_Api_1)")
         print("api calls : \(Utility.apiMethod.Url_Api_2) ")
-        print("api calls : \(Utility.apiMethod.Url_Api_3) ")
+        print("api calls : \(Utility.apiMethod.googleUrl) ")
         
         
-       serviceCall.ServiceRequest(Utility.apiMethod.Url_Api_1, params:"")
+       serviceCall.ServiceRequest(Utility.apiMethod.googleUrl, params:"")
         
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,

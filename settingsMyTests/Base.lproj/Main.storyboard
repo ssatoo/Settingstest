@@ -127,13 +127,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZe-1a-R3U">
                                 <rect key="frame" x="279" y="290" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-LC-xNJ">
                                 <rect key="frame" x="279" y="316" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2F9-U7-KIK">
@@ -250,24 +250,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-D9-awv">
-                                <rect key="frame" x="10" y="290" width="580" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-Tv-D4C">
+                                <rect key="frame" x="0.0" y="20" width="600" height="530"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ods-Y5-IyE" id="c9x-l3-3T9"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-ap-1fL">
+                                <rect key="frame" x="225" y="550" width="150" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="DIG-gB-EKv"/>
+                                    <constraint firstAttribute="height" constant="50" id="oyC-IX-a9M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
+                                <state key="normal" title="Refresh Location">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshlocationAction:" destination="Ods-Y5-IyE" eventType="touchUpInside" id="jUe-gF-FaG"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6hA-D9-awv" secondAttribute="trailing" constant="10" id="Lc5-Hw-Xil"/>
-                            <constraint firstItem="6hA-D9-awv" firstAttribute="centerY" secondItem="gbu-uc-Iaj" secondAttribute="centerY" id="YyQ-xl-URT"/>
-                            <constraint firstItem="6hA-D9-awv" firstAttribute="leading" secondItem="gbu-uc-Iaj" secondAttribute="leading" constant="10" id="lhZ-NM-Jyv"/>
+                            <constraint firstItem="4Mi-Tv-D4C" firstAttribute="top" secondItem="VCf-js-p2H" secondAttribute="bottom" id="9T8-Rt-bxx"/>
+                            <constraint firstItem="pa4-zu-ltD" firstAttribute="top" secondItem="fM4-ap-1fL" secondAttribute="bottom" id="ONH-YT-XR9"/>
+                            <constraint firstAttribute="trailing" secondItem="4Mi-Tv-D4C" secondAttribute="trailing" id="UVO-3q-4V4"/>
+                            <constraint firstItem="fM4-ap-1fL" firstAttribute="top" secondItem="4Mi-Tv-D4C" secondAttribute="bottom" id="cMj-PA-0pf"/>
+                            <constraint firstItem="fM4-ap-1fL" firstAttribute="centerX" secondItem="gbu-uc-Iaj" secondAttribute="centerX" id="mgG-24-rdf"/>
+                            <constraint firstItem="4Mi-Tv-D4C" firstAttribute="leading" secondItem="gbu-uc-Iaj" secondAttribute="leading" id="t3G-h3-qyW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="4Mi-Tv-D4C" id="2bv-fN-9pC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDM-3Z-296" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3538" y="794"/>
+            <point key="canvasLocation" x="3520" y="871"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YQo-rg-xDW">

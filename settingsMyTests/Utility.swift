@@ -60,7 +60,7 @@ class Utility: NSObject {
     
      func makeTheRequestPost(request : NSString)  {
         
-        var ruternResponse : NSString  = ""
+     
        
        
         let url = request
@@ -102,8 +102,9 @@ class Utility: NSObject {
     
      func ServiceRequest( apiMethod: String, params : String ) {
         
-        let serviceIP = "Host"
-        let request = String(format: "http://\(serviceIP)\(apiMethod)?\(params)")
+        let serviceIP = ""
+        //let request = String(format: "http://\(serviceIP)\(apiMethod)?\(params)")
+        let request = String(format: "http://\(serviceIP)\(apiMethod)")
        
         
          self.makeTheRequestPost(request)
@@ -114,7 +115,7 @@ class Utility: NSObject {
     {
         static let Url_Api_1 = "api/1url"
         static let Url_Api_2 = "api/2url"
-        static let Url_Api_3 = "api/3url"
+        static let googleUrl = "google.com"
         
     }
 
