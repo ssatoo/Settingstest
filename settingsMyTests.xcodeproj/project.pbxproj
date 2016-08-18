@@ -33,6 +33,8 @@
 		916499701D58715B00EE5B28 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9164996F1D58715B00EE5B28 /* Utility.swift */; };
 		9179CE261D5B3B8D00C283AE /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179CE251D5B3B8D00C283AE /* LeftMenuViewController.swift */; };
 		9179CE371D5B7DAC00C283AE /* ThirthMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9179CE361D5B7DAC00C283AE /* ThirthMenuViewController.swift */; };
+		91FBC5091D65CB5200EF8921 /* CircleIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBC5081D65CB5200EF8921 /* CircleIndicatorViewController.swift */; };
+		91FBC50C1D65CBCF00EF8921 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBC50B1D65CBCF00EF8921 /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		9164996F1D58715B00EE5B28 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		9179CE251D5B3B8D00C283AE /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		9179CE361D5B7DAC00C283AE /* ThirthMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirthMenuViewController.swift; sourceTree = "<group>"; };
+		91FBC5081D65CB5200EF8921 /* CircleIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleIndicatorViewController.swift; sourceTree = "<group>"; };
+		91FBC50B1D65CBCF00EF8921 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 		9164993F1D58712800EE5B28 /* settingsMyTests */ = {
 			isa = PBXGroup;
 			children = (
+				91FBC50A1D65CBCF00EF8921 /* KDCircularProgress */,
 				914DA2FD1D5B3470000BE8FD /* Sources */,
 				914DA2F21D5B334A000BE8FD /* SlideMenu */,
 				910FB5451D59D63F0058965E /* Toast */,
@@ -184,6 +189,7 @@
 				910FB5481D59F9DC0058965E /* MoreViewController.swift */,
 				9179CE251D5B3B8D00C283AE /* LeftMenuViewController.swift */,
 				9179CE361D5B7DAC00C283AE /* ThirthMenuViewController.swift */,
+				91FBC5081D65CB5200EF8921 /* CircleIndicatorViewController.swift */,
 			);
 			path = settingsMyTests;
 			sourceTree = "<group>";
@@ -212,6 +218,14 @@
 				9164996F1D58715B00EE5B28 /* Utility.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		91FBC50A1D65CBCF00EF8921 /* KDCircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				91FBC50B1D65CBCF00EF8921 /* KDCircularProgress.swift */,
+			);
+			path = KDCircularProgress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,8 +361,10 @@
 			files = (
 				914DA30E1D5B3470000BE8FD /* ValueEnum.swift in Sources */,
 				910FB5491D59F9DC0058965E /* MoreViewController.swift in Sources */,
+				91FBC5091D65CB5200EF8921 /* CircleIndicatorViewController.swift in Sources */,
 				914DA2F81D5B334A000BE8FD /* SlideMenuController.swift in Sources */,
 				914DA3081D5B3470000BE8FD /* JSONDictionary.swift in Sources */,
+				91FBC50C1D65CBCF00EF8921 /* KDCircularProgress.swift in Sources */,
 				914DA30D1D5B3470000BE8FD /* SupportCode.swift in Sources */,
 				914DA3091D5B3470000BE8FD /* JSONParser.swift in Sources */,
 				914DA2FA1D5B334A000BE8FD /* UIViewControllerExtension.swift in Sources */,
@@ -510,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = settingsMyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.startup.settingsMyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,7 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = settingsMyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.startup.settingsMyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -100,6 +100,9 @@ class ViewController: UIViewController,ApiServiceDelegate {
         
         
       self.progressBar.setProgress(0, animated: true)
+        
+              
+        
         self.startCount()
         
         
@@ -157,11 +160,12 @@ class ViewController: UIViewController,ApiServiceDelegate {
      func startCount() {
         self.progressLbl.text = "0%"
         self.progressCounter = 0
-        for i in 0..<100 {
+        for i in 0..<101 {
+            print("progressCounter (\(i)%)")
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                 sleep(UInt32(1))
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.progressCounter += 1
+                    self.progressCounter = i
                     return
                 })
             })

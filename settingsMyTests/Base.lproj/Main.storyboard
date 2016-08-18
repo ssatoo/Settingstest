@@ -53,11 +53,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-Zj-KTO">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-Zj-KTO">
                                 <rect key="frame" x="5" y="457" width="590" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xWw-fR-D2i"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xWw-fR-D2i"/>
+                                    </mask>
+                                </variation>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfo-dL-yAz">
                                 <rect key="frame" x="279" y="431" width="42" height="21"/>
@@ -176,7 +181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-sI-mvw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-sI-mvw">
                                 <rect key="frame" x="0.0" y="220" width="600" height="380"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -237,6 +242,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzT-Ad-9vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3186" y="214"/>
+        </scene>
+        <!--Circle Indicator View Controller-->
+        <scene sceneID="ZY3-iy-po8">
+            <objects>
+                <viewController storyboardIdentifier="CircleIndicatorViewController" id="ifb-8L-F7B" customClass="CircleIndicatorViewController" customModule="settingsMyTests" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RKL-nQ-CNj"/>
+                        <viewControllerLayoutGuide type="bottom" id="xia-bU-3dm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S8L-Qf-QoK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbx-6B-zzk" customClass="KDCircularProgress" customModule="settingsMyTests" customModuleProvider="target">
+                                <rect key="frame" x="226" y="226" width="148" height="148"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="AH1-yw-ACe"/>
+                                    <constraint firstAttribute="height" constant="148" id="oFP-uv-4i7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="lerpColorMode" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.0" green="0.3921568627" blue="0.70588235290000001" alpha="0.72387522159999995" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zbx-6B-zzk" firstAttribute="centerX" secondItem="S8L-Qf-QoK" secondAttribute="centerX" id="LPc-nv-OiA"/>
+                            <constraint firstItem="Zbx-6B-zzk" firstAttribute="centerY" secondItem="S8L-Qf-QoK" secondAttribute="centerY" id="S0D-xG-oph"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progress" destination="Zbx-6B-zzk" id="zOd-t3-pX7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0x-Va-BCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3827" y="312"/>
         </scene>
         <!--Thirth Menu View Controller-->
         <scene sceneID="Qu7-U7-0Al">

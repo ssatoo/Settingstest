@@ -28,7 +28,8 @@ extension String {
     
     public func getMatches(regex: String, options: NSStringCompareOptions?) -> [Range<String.Index>] {
             var arr = [Range<String.Index>]()
-            var rang = Range(start: self.startIndex, end: self.endIndex)
+            var rang =  self.startIndex ..< self.endIndex
+           // var rang = Range(start: self.startIndex, end: self.endIndex)
             var foundRange:Range<String.Index>?
             
             repeat

@@ -97,14 +97,12 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
         view.insertSubview(mainContainerView, atIndex: 0)
         if (NSClassFromString("UIVisualEffectView") != nil) {
             // Add blur view
-            if #available(iOS 8.0, *) {
+           
                 let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
                 visualEffectView.frame = mainContainerView.bounds
                 visualEffectView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
                 mainContainerView.addSubview(visualEffectView)
-            } else {
-                // Fallback on earlier versions
-            }
+           
            
         }
         else {
@@ -147,11 +145,9 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     }
   
     public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if #available(iOS 8.0, *) {
+      
             super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        } else {
-            // Fallback on earlier versions
-        }
+       
         mainContainerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
         leftContainerView.hidden = true
         rightContainerView.hidden = true
@@ -222,13 +218,13 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     
         if (leftViewController != nil) {
             if leftPanGesture == nil {
-                leftPanGesture = UIPanGestureRecognizer(target: self, action: "handleLeftPanGesture:")
+                leftPanGesture = UIPanGestureRecognizer(target: self, action: #selector(SlideMenuController.handleLeftPanGesture(_:)))
                 leftPanGesture!.delegate = self
                 view.addGestureRecognizer(leftPanGesture!)
             }
             
             if leftTapGetsture == nil {
-                leftTapGetsture = UITapGestureRecognizer(target: self, action: "toggleLeft")
+                leftTapGetsture = UITapGestureRecognizer(target: self, action: #selector(UIViewController.toggleLeft))
                 leftTapGetsture!.delegate = self
                 view.addGestureRecognizer(leftTapGetsture!)
             }
@@ -239,13 +235,13 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
         
         if (rightViewController != nil) {
             if rightPanGesture == nil {
-                rightPanGesture = UIPanGestureRecognizer(target: self, action: "handleRightPanGesture:")
+                rightPanGesture = UIPanGestureRecognizer(target: self, action: #selector(SlideMenuController.handleRightPanGesture(_:)))
                 rightPanGesture!.delegate = self
                 view.addGestureRecognizer(rightPanGesture!)
             }
             
             if rightTapGesture == nil {
-                rightTapGesture = UITapGestureRecognizer(target: self, action: "toggleRight")
+                rightTapGesture = UITapGestureRecognizer(target: self, action: #selector(UIViewController.toggleRight))
                 rightTapGesture!.delegate = self
                 view.addGestureRecognizer(rightTapGesture!)
             }
@@ -888,12 +884,12 @@ extension UIViewController {
     }
     
     public func addLeftBarButtonWithImage(buttonImage: UIImage) {
-        let leftButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: "toggleLeft")
+        let leftButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(UIViewController.toggleLeft))
         navigationItem.leftBarButtonItem = leftButton;
     }
     
     public func addRightBarButtonWithImage(buttonImage: UIImage) {
-        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: "toggleRight")
+        let rightButton: UIBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(UIViewController.toggleRight))
         navigationItem.rightBarButtonItem = rightButton;
     }
     

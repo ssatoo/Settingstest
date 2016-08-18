@@ -832,7 +832,7 @@ public struct JSONArrayGenerator:GeneratorType {
     mutating public func next() -> Value? {
         
         if let v:Value? = arr[i] {
-            ++i
+            i += 1
             return v
         }
         

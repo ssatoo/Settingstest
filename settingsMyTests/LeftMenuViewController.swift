@@ -14,6 +14,7 @@ enum LeftMenu: Int {
     case Menu1
     case Menu2
     case Menu3
+    case Menu4
 
 }
 
@@ -28,16 +29,18 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
     @IBOutlet weak var menuTopView: UIView!
     @IBOutlet weak var menuTable: UITableView!
     var menus = [
-        "Menu 1",
-        "Menu 2",
-        "Menu 3",
+        "Home",
+        "More",
+        "Map - Location",
+        "Circular progressbar"
        ]
     
-    var menuImage = ["profile", "help", "info"]
+    var menuImage = ["profile", "help", "info","queries"]
    
     var menu1 : UIViewController!
     var menu2: UIViewController!
     var menu3: UIViewController!
+    var menu4: UIViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +64,8 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         let page3 = storyboard.instantiateViewControllerWithIdentifier("ThirthMenuViewController")
         self.menu3 = UINavigationController(rootViewController:page3)
         
-      
+        let page4 =  storyboard.instantiateViewControllerWithIdentifier("CircleIndicatorViewController")
+        self.menu4 = UINavigationController(rootViewController:page4)
         
         self.slideMenuController()?.changeMainViewController(self.menu1, close: true)
         
@@ -136,10 +140,12 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.menu3, close: true)
             break
       
+
+        case .Menu4:
+            print("Menu 4")
+            self.slideMenuController()?.changeMainViewController(self.menu4, close: true)
             
             
-        default:
-            break
         }
     }
 

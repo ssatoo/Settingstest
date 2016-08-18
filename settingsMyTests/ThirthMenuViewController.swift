@@ -19,7 +19,7 @@ class ThirthMenuViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     @IBAction func refreshlocationAction(sender: AnyObject) {
         self.locationManager.startUpdatingLocation()
-        self.view.makeToastActivity(message: "Updating Location")
+        self.view.makeToastActivity(message: "Location..")
     }
     
     override func viewDidLoad() {
@@ -34,13 +34,10 @@ class ThirthMenuViewController: UIViewController, MKMapViewDelegate, CLLocationM
             self.locationManager = CLLocationManager()
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            if #available(iOS 8.0, *) {
-                self.locationManager.requestWhenInUseAuthorization()
-            } else {
-                // Fallback on earlier versions
-            }
+            self.locationManager.requestWhenInUseAuthorization()
+            
             self.locationManager.startUpdatingLocation()
-            self.view.makeToastActivity(message: "Updating Location")
+            self.view.makeToastActivity(message: "Location")
         }
         
        
@@ -65,8 +62,8 @@ class ThirthMenuViewController: UIViewController, MKMapViewDelegate, CLLocationM
         let point: MKPointAnnotation! = MKPointAnnotation()
         
         point.coordinate = location!.coordinate
-        point.title = "Current Location"
-        point.subtitle = "sub title"
+        point.title = "This is your location"
+        point.subtitle = "hi there"
         
         self.mapView.addAnnotation(point)
         

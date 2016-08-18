@@ -680,27 +680,27 @@ extension JSONDictionary {
         
         let k = dictionaryKeys[i]
         if let v = stringDict?[k] {
-            ++i
+            i += 1
             return Value(v)
         }
         else if let v = numDict?[k] {
-            ++i
+            i += 1
             return Value(num:v)
         }
         else if let v = boolDict?[k] {
-            ++i
+            i += 1
             return Value(bool:v)
         }
         else if let v = nullDict?[k] {
-            ++i
+           i += 1
             return Value(v)
         }
         else if let v = dictDict?[k] {
-            ++i
+           i += 1
             return Value(v)
         }
         else if let v = arrayDict?[k] {
-            ++i
+           i += 1
             return Value(v)
         }
         
@@ -733,7 +733,7 @@ public struct JSONDictionaryGenerator:GeneratorType {
             let key = keys[i]
             // crashing here when doing regEx search and replace strings
             if let v:Value? = dict[key] {
-                ++i
+               i += 1
                 return (key, v)
             }
             else {

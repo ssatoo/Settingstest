@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Foundation
 
 protocol ApiServiceDelegate {
     
@@ -121,8 +121,7 @@ class Utility: NSObject {
 
     
     static func myObjectToString (Obj : AnyObject){
-        print("Details..." )
-    
+        print("\(Obj.description)")
     }
     static func getAppVersion ()-> String{
         var versionStr : String = ""
