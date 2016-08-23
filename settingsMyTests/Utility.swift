@@ -12,14 +12,14 @@ import Foundation
 protocol ApiServiceDelegate {
     
     
-   
+    
     func serviceCallDidFinish(responseString : NSString)
     
 }
 
 
 class Utility: NSObject {
-
+    
     
     var apiDelegate :ApiServiceDelegate!
     
@@ -49,20 +49,20 @@ class Utility: NSObject {
         self.testVar2 =  testVar
         
     }
-
     
-     func getResponse(response: String) {
     
+    func getResponse(response: String) {
+        
         apiDelegate.serviceCallDidFinish(response)
         
     }
     
     
-     func makeTheRequestPost(request : NSString)  {
+    func makeTheRequestPost(request : NSString)  {
         
-     
-       
-       
+        
+        
+        
         let url = request
         print("request url \(url)")
         
@@ -83,31 +83,25 @@ class Utility: NSObject {
             }
             
             let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-          //  print("responseString = \(responseString!)")
-            
-            
-          self.apiDelegate.serviceCallDidFinish(responseString!)
-            
-            
-            
-            
-            
+            //  print("responseString = \(responseString!)")
+            self.apiDelegate.serviceCallDidFinish(responseString!)
         }
+        
         task.resume()
         // return ruternResponse
     }
-
     
     
     
-     func ServiceRequest( apiMethod: String, params : String ) {
+    
+    func ServiceRequest( apiMethod: String, params : String ) {
         
         let serviceIP = ""
         //let request = String(format: "http://\(serviceIP)\(apiMethod)?\(params)")
         let request = String(format: "http://\(serviceIP)\(apiMethod)")
-       
         
-         self.makeTheRequestPost(request)
+        
+        self.makeTheRequestPost(request)
         
     }
     
@@ -118,7 +112,7 @@ class Utility: NSObject {
         static let googleUrl = "google.com"
         
     }
-
+    
     
     static func myObjectToString (Obj : AnyObject){
         print("\(Obj.description)")
@@ -132,7 +126,7 @@ class Utility: NSObject {
         
     }
     static func getAppName()-> String{
-      
+        
         var appName : String = ""
         appName =  NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
         return appName

@@ -280,14 +280,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fot-1U-hic">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0DI-ZA-aMi"/>
+                                    <constraint firstAttribute="height" constant="50" id="0yV-Fb-gI6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fot-1U-hic" firstAttribute="centerY" secondItem="S8L-Qf-QoK" secondAttribute="centerY" id="E6h-8p-cGu"/>
                             <constraint firstItem="Zbx-6B-zzk" firstAttribute="centerX" secondItem="S8L-Qf-QoK" secondAttribute="centerX" id="LPc-nv-OiA"/>
                             <constraint firstItem="Zbx-6B-zzk" firstAttribute="centerY" secondItem="S8L-Qf-QoK" secondAttribute="centerY" id="S0D-xG-oph"/>
+                            <constraint firstItem="fot-1U-hic" firstAttribute="centerX" secondItem="S8L-Qf-QoK" secondAttribute="centerX" id="XNd-J6-HAx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progresLbl" destination="fot-1U-hic" id="2ba-g2-Uc6"/>
                         <outlet property="progress" destination="Zbx-6B-zzk" id="zOd-t3-pX7"/>
                     </connections>
                 </viewController>

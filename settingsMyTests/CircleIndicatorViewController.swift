@@ -12,6 +12,7 @@ class CircleIndicatorViewController: UIViewController {
  
     @IBOutlet weak var progress: KDCircularProgress!
     
+    @IBOutlet weak var progresLbl: UILabel!
     
     
     override func viewDidAppear(animated: Bool) {
@@ -22,7 +23,10 @@ class CircleIndicatorViewController: UIViewController {
         
         
         progress.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
-        
+       
+            print("self.progress -> \(self.progress.angle)")
+           
+            
             if completed {
                 print("animation stopped, completed")
                 
@@ -45,14 +49,13 @@ class CircleIndicatorViewController: UIViewController {
         self.title =  "Test"
 
         
-        progress.animateFromAngle(0, toAngle: 360, duration: 5) { completed in
-          print("\(self.progress)")
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }        // Do any additional setup after loading the view.
+//        progress.animateFromAngle(0, toAngle: 360, duration: 5) { completed in
+//                   if completed {
+//                print("animation stopped, completed")
+//            } else {
+//                print("animation stopped, was interrupted")
+//            }
+//        }        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

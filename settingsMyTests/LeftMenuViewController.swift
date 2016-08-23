@@ -71,8 +71,6 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         
         self.menuTable.registerCellClass(BaseTableViewCell.self)
 
-        
-        
         // Do any additional setup after loading the view.
     }
 
@@ -126,23 +124,23 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         print("changeViewController")
         switch menu {
         case .Menu1:
-            print("Menu 1")
+            print("Case for  Menu 1")
             self.slideMenuController()?.changeMainViewController(self.menu1, close: true)
             break
             
         case .Menu2:
-             print("Menu 2")
+             print("Case for Menu 2")
             self.slideMenuController()?.changeMainViewController(self.menu2, close: true)
             break
             
         case .Menu3:
-             print("Menu 3")
+             print("Case for Menu 3")
             self.slideMenuController()?.changeMainViewController(self.menu3, close: true)
             break
       
 
         case .Menu4:
-            print("Menu 4")
+            print("Case for Menu 4")
             self.slideMenuController()?.changeMainViewController(self.menu4, close: true)
             
             

@@ -37,7 +37,6 @@ class ViewController: UIViewController,ApiServiceDelegate {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBAction func StopStartTimeBtn_Action(sender: AnyObject) {
         
-        
         switch  sender.tag {
         case 1:
             counter =  0
@@ -50,16 +49,16 @@ class ViewController: UIViewController,ApiServiceDelegate {
             self.Counter_timer.invalidate()
             self.StopStartBtn.setTitle("Stop", forState: UIControlState.Normal)
             self.StopStartBtn.tag =  2
-             Counter_timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StartTimer), userInfo: nil, repeats: true)
+            Counter_timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StartTimer), userInfo: nil, repeats: true)
             break
         case 2:
             self.StopTime.backgroundColor =  UIColor.whiteColor()
             
             self.Counter_timer.invalidate()
-               self.StopTime.text =  ""
+            self.StopTime.text =  ""
             self.StopStartBtn.setTitle("Start", forState: UIControlState.Normal)
             self.StopStartBtn.tag =  1
-             Counter_timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StopTimer), userInfo: nil, repeats: true)
+            Counter_timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StopTimer), userInfo: nil, repeats: false)
             break
         default:
             print("default case")
@@ -68,43 +67,39 @@ class ViewController: UIViewController,ApiServiceDelegate {
         // just in case this button is tapped multiple times
         
         // start the timer
-      
+        
         
         
     }
     func StartTimer() {
         counter += 1
-        self.counterLbl.text = "\(counter)s"
+        self.counterLbl.text = "\(self.secondsToHoursMinutesSeconds(counter))"
     }
     func StopTimer() {
         self.counterLbl.text = "Your time is \(self.secondsToHoursMinutesSeconds(counter)) "
-       
+        print("timer count (\(counter))")
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         self.title = "Home"
         
-         self.setNavigationBarItem()
+        self.setNavigationBarItem()
         
         print(Utility.getAppName())
         print(Utility.getAppVersion())
         
-        
-      self.progressBar.setProgress(0, animated: true)
-        
-              
-        
+        self.progressBar.setProgress(0, animated: true)
         self.startCount()
-        
         
         self.counterLbl.text = "Press Start button"
         
@@ -114,34 +109,29 @@ class ViewController: UIViewController,ApiServiceDelegate {
         self.counterLbl.layer.masksToBounds = true
         
         self.StopStartBtn.layer.cornerRadius =  3
-        
-        
-        
         let serviceCall:Utility = Utility()
         serviceCall.apiDelegate = self;
-    
         
         print("api calls : \(Utility.apiMethod.Url_Api_1)")
-        print("api calls : \(Utility.apiMethod.Url_Api_2) ")
-        print("api calls : \(Utility.apiMethod.googleUrl) ")
+        print("api calls : \(Utility.apiMethod.Url_Api_2)")
+        print("api calls : \(Utility.apiMethod.googleUrl)")
         
-        
-       serviceCall.ServiceRequest(Utility.apiMethod.googleUrl, params:"")
+        serviceCall.ServiceRequest(Utility.apiMethod.googleUrl, params:"")
         
         
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-            target: self,
-            selector: #selector(ViewController.tick),
-            userInfo: nil,
-            repeats: true)
+                                                            target: self,
+                                                            selector: #selector(ViewController.tick),
+                                                            userInfo: nil,
+                                                            repeats: true)
     }
     
     @objc func tick() {
         self.timeLbl.text = NSDateFormatter.localizedStringFromDate(NSDate(),
-                                                                        dateStyle: .MediumStyle,
-                                                                        timeStyle: .MediumStyle)
+                                                                    dateStyle: .MediumStyle,
+                                                                    timeStyle: .MediumStyle)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -157,7 +147,7 @@ class ViewController: UIViewController,ApiServiceDelegate {
     }
     
     
-     func startCount() {
+    func startCount() {
         self.progressLbl.text = "0%"
         self.progressCounter = 0
         for i in 0..<101 {
@@ -170,7 +160,7 @@ class ViewController: UIViewController,ApiServiceDelegate {
                 })
             })
         }
-
+        
     }
     
     func onScrollViewDoubleTapped(recognizer:UITapGestureRecognizer)
@@ -190,8 +180,6 @@ class ViewController: UIViewController,ApiServiceDelegate {
         let main = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftMenuViewSID") as! LeftMenuViewController
         //let rightViewController:UIViewController! = storyboard.instantiateViewControllerWithIdentifier("RightMenuViewSID") as! RightMenuVC
-        
-        
         let nvc: UINavigationController = UINavigationController (rootViewController: main)
         
         
@@ -199,13 +187,10 @@ class ViewController: UIViewController,ApiServiceDelegate {
         
         
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-        
-        
-        
         self.navigationController?.pushViewController(slideMenuController, animated:false)
         
     }
-
-   
+    
+    
 }
 
