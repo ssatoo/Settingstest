@@ -15,6 +15,8 @@ enum LeftMenu: Int {
     case Menu2
     case Menu3
     case Menu4
+    case Menu5
+    case Menu6
 
 }
 
@@ -32,15 +34,19 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         "Home",
         "More",
         "Map - Location",
-        "Circular progressbar"
+        "Circular progressbar",
+        "Animation Image",
+        "Slide Show"
        ]
     
-    var menuImage = ["profile", "help", "info","queries"]
+    var menuImage = ["profile", "help", "info","queries","help", "info"]
    
     var menu1 : UIViewController!
     var menu2: UIViewController!
     var menu3: UIViewController!
     var menu4: UIViewController!
+    var menu5: UIViewController!
+    var menu6: UIViewController!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,6 +72,14 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         
         let page4 =  storyboard.instantiateViewControllerWithIdentifier("CircleIndicatorViewController")
         self.menu4 = UINavigationController(rootViewController:page4)
+        
+        let page5 = storyboard.instantiateViewControllerWithIdentifier("AnimationImageViewController")
+        self.menu5 =  UINavigationController(rootViewController:page5)
+        
+        
+        let page6 = storyboard.instantiateViewControllerWithIdentifier("SomeGalleryViewController")
+        self.menu6 =  UINavigationController(rootViewController:page6)
+        
         
         self.slideMenuController()?.changeMainViewController(self.menu1, close: true)
         
@@ -124,24 +138,32 @@ class LeftMenuViewController: UIViewController,LeftMenuProtocol {
         print("changeViewController")
         switch menu {
         case .Menu1:
-            print("Case for  Menu 1")
+            print("Home")
             self.slideMenuController()?.changeMainViewController(self.menu1, close: true)
             break
             
         case .Menu2:
-             print("Case for Menu 2")
+             print("More")
             self.slideMenuController()?.changeMainViewController(self.menu2, close: true)
             break
             
         case .Menu3:
-             print("Case for Menu 3")
+             print("Map")
             self.slideMenuController()?.changeMainViewController(self.menu3, close: true)
             break
       
-
         case .Menu4:
-            print("Case for Menu 4")
+            print("Circular Indicator")
             self.slideMenuController()?.changeMainViewController(self.menu4, close: true)
+          
+        case .Menu5:
+            print("Animating Image")
+            self.slideMenuController()?.changeMainViewController(self.menu5, close: true)
+            
+            
+        case .Menu6:
+            print("Slide show")
+            self.slideMenuController()?.changeMainViewController(self.menu6, close: true)
             
             
         }

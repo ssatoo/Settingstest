@@ -22,7 +22,7 @@ class CircleIndicatorViewController: UIViewController {
         progress.animateFromAngle(progress.angle, toAngle: 0, duration: 0.5, completion: nil)
         
         
-        progress.animateFromAngle(0, toAngle: 360, duration: 100) { completed in
+        progress.animateFromAngle(0, toAngle: 360, duration: 10) { completed in
        
             print("self.progress -> \(self.progress.angle)")
            
